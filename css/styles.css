@@ -5,12 +5,18 @@ body {
 
 #doublefist {
     border-radius: 60%;
+    margin-top: -20px;
 }
 
-h1 {
+h1, h3 {
     color: white;
     font-family: 'Shadows Into Light', sans-serif;
     font-size: 50px;
+}
+
+h3 {
+    margin-top: -10px;
+    display: none;
 }
 
 p {
@@ -29,3 +35,39 @@ button {
     padding: 10px 15px;
     font-family: 'Roboto', sans-serif;
 }
+
+.hover {
+    border-color: white;
+    box-shadow: 0 0 2rem white;
+}
+
+.icons {
+    border-radius: 10%;
+    margin-left: 10px;
+}
+
+#iconcontainer {
+    margin-top: 10px;
+    /*display: none; */
+}
+
+.animated {
+    transform: scale(.5);
+    transition: transform 1s ease-in-out 0s;
+    animation: shake 2s 1s 3 alternate-reverse;
+}
+
+@keyframes shake {
+    0% {
+      transform: rotate( 0deg ) scale( .5 );
+    }
+    10% {
+      transform: rotate( 15deg ) scale( .7 );
+    }
+    50% {
+      transform: rotate( -180deg ) scale( 1 );
+    }
+    100% {
+      transform: rotate( -360deg ) scale( .5 );
+    }
+  };
