@@ -49,6 +49,7 @@ h3 {
 align-items: center;
 justify-content: center;
 display: none;
+margin-bottom: 100px;
 }
 
 .text {
@@ -84,6 +85,63 @@ display: none;
     background-color: aqua;
     border-radius: 10%
   }
+
+  h5 {
+    color: white;
+  }
+
+
+  #playagain {
+    display: none;
+  }
+
+#paperwin {
+  display: none;
+}
+
+#paperloose {
+  display:none;
+}
+
+#paperstalemate {
+  display: none;
+}
+
+#scissorwin {
+  display: none;
+}
+
+#scissorloose {
+  display: none;
+}
+
+#scissorstalemate {
+  display: none;
+}
+
+#rockwin {
+  display: none;
+}
+
+#rockloose {
+  display: none;
+}
+
+#rockstalemate {
+  display: none;
+}
+
+button {
+  margin:0 auto;
+}
+
+.outtros {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif
+}
+ 
+
+
   
 
 @keyframes shake {

@@ -7,6 +7,7 @@
     <title>Rock Paper Scissors Game</title>
 </head>
 <body>
+    <!--Header-->
     <h1 id="heading">Rock Paper Scissors</h1>
     <img src="img/fist-bump-pop-art-vector-illustration.jpg" height=400px id="doublefist">
     <!--Start Button-->
@@ -33,113 +34,27 @@
           </div>
         </div>
       </div>
-      
-   
-
+      <!--the various headings that will be displayed depending on the result of the game, hidden by default-->
+      <div class="outtros">
+      <h5 id="paperwin">Your Opponent choose rock. Paper covers rock.  You win!</h5>
+      <h5 id="scissorwin">Your Opponent choose paper. Scissors cut paper.  You win!</h5>
+      <h5 id="rockwin">Your Opponent choose scissors. Rock crushes scissors.  You win!</h5>
+      <h5 id="rockloose">Your Opponent choose paper. Paper covers rock.  You lose!</h5>
+      <h5 id="paperloose">Your Opponent choose scissors. Scissors cut paper. You lose!</h5>
+      <h5 id="scissorloose">Your Opponent choose rock. Rock crushes scissors.  You lose!</h5>
+      <h5 id="rockstalemate">Your Opponent choose rock. So did you.  Stalemate.</h5>
+      <h5 id="paperstalemate">Your Opponent choose paper. So did you.  Stalemate.</h5>
+      <h5 id="scissorstalemate">Your Opponent choose scissors. So did you.  Stalemate.</h5>
+    </div>
+    <!--Play Again Button-->
+    <button id="playagain">Play Again?</button>
+    <!--intro music-->
     <audio id="intro" src="audio/intro.wav"></audio>
+    <!--effect music-->
+    <audio id="win" src="audio/win.wav"></audio>
+    <audio id="lose" src="audio/lose.wav"></audio>
+    <audio id="stalemate" src="audio/stalemate.wav"></audio>
 
-<script>
-    const opponentchoices = ["rock", "paper", "scissor"]
-
-    const doublefist = document.getElementById("doublefist")
-    const startbutton = document.getElementById("clicktostart")
-    const heading = document.getElementById("heading")
-    const iconcontainer = document.querySelector('.row')
-    const paper = document.getElementById('paper')
-    const rock = document.getElementById('rock')
-    const scissor = document.getElementById('scissor')
-    const introsong = document.getElementById('intro')
-    const choice = document.getElementById('choiceheader')
-    doublefist.addEventListener('mouseover', enableHoverFeature)
-    doublefist.addEventListener('mouseout', disableHoverFeature)
-    doublefist.addEventListener('click', startGame)
-
-
-    function startGame() { /*intitialized when the user clicks to play.  Removes the event listeners,
-    intitalizes the animation and stops the intro music*/
-    introsong.play()
-    heading.style.display="none";
-    startbutton.style.display="none";
-    doublefist.classList.remove('hover')
-    doublefist.removeEventListener('mouseover', enableHoverFeature);
-    doublefist.removeEventListener('mouseout', disableHoverFeature);
-    fistAnimation()
-    }
-
-    function fistAnimation() {
-    doublefist.classList.add('animated');
-    doublefist.addEventListener('animationend', playerChoice)
-    doublefist.removeEventListener('click', startGame)
-
-    }
-
-    function playerChoice() {
-    iconcontainer.style.display="flex";
-    choice.style.display="block";
-    paper.addEventListener('click', () => Battle("paper"))
-    scissor.addEventListener('click', () => Battle("scissor"))
-    rock.addEventListener('click', () => Battle("rock"))
-    }
-
-    function Battle(choice) {
-        paper.removeEventListener('click', () => Battle)
-        scissor.removeEventListener('click', () => Battle)
-        rock.removeEventListener('click', Battle)
-        let opponentchooses = opponentchoices[Math.floor(Math.random() * opponentchoices.length)];
-        console.log(opponentchooses)
-        beginOpponentAnimation()
-        
-        if (opponentchooses === "rock" && choice === "scissor") {
-            playerLoss("scissor")
-        }
-        if (opponentchooses == "scissor" && choice === "paper") {
-            playerLoss("paper")
-        }
-        if (opponentchooses == "paper" && choice == "rock") {
-            playerLoss("rock")
-
-        if (opponentchooses == "scissor" && choice == "rock") {
-            playerWins("rock")
-        }
-        if (opponentchooses == "paper" && choice === "scissor") {
-            playerWins("scissor")
-        }
-        if (opponentchooses == "rock" && choice === "paper")
-            playerWins("paper")
-    }
-}
-
-function OpponentAnimation() {
-    doublefist.style.display="none"
-}
-
-    function playerLoss(reason) {
-        if (reason === "scissor") {
-            console.log("scissor")
-        }
-        if (reason === "paper") {
-            console.log("paper")
-        }
-        if (reason === "rock") {
-            console.log('rock')
-        }
-    }
-
-    
-
-    
-
-
-    function enableHoverFeature() {
-    doublefist.classList.add('hover');
-    startbutton.style.display="block";
-    }
-
-    function disableHoverFeature() {
-    doublefist.classList.remove('hover')
-    startbutton.style.display="none";
-    }
-</script>
-    
+<script src="js/scripts.js"></script>
 </body>
 </html>
