@@ -5,7 +5,7 @@ body {
 
 #doublefist {
     border-radius: 60%;
-    margin-top: -20px;
+    margin-top: 20px;
     
 }
 
@@ -13,6 +13,10 @@ h1, h2, h3, h4 {
     color: white;
     font-family: 'Shadows Into Light', sans-serif;
     font-size: 50px;
+}
+
+h1 {
+    margin-bottom: 20px;
 }
 
 h4 {
@@ -37,12 +41,6 @@ h3 {
     margin-top: 20px;
     object-fit: contain;
     max-height: 100%
-}
-
-.animated {
-    transform: scale(.5);
-    transition: transform 1s ease-in-out 0s;
-    animation: shake 2s 1s 2 alternate-reverse;
 }
   
 .row {
@@ -206,14 +204,17 @@ button {
   cursor: pointer;
 }
 
+.animated {
+  transform: scale(.5);
+  transition: transform 1s ease-in-out 0s;
+  animation: shake 2s 1s 2 alternate-reverse;
+}
+
  
-
-
-  
 
 @keyframes shake {
     0% {
-      transform: rotate( 0deg ) scale( .5 );
+      transform: rotate( 0deg ) scale( 1 );
     }
     10% {
       transform: rotate( 15deg ) scale( .7 );
@@ -225,6 +226,7 @@ button {
       transform: rotate( -360deg ) scale( .5 );
     }
   };
+  
 
   
 

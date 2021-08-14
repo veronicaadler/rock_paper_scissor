@@ -45,7 +45,6 @@ function startGame() {
   /*intitialized when the user clicks to play.  Removes the event listeners,
 intitalizes the animation and stops the intro music*/
   introsong.play();
-  heading.style.display = "none";
   startbutton.style.display = "none";
   doublefist.classList.remove("hover");
   doublefist.removeEventListener("mouseover", enableHoverFeature);
@@ -63,6 +62,7 @@ function playAnimation() {
 function playerChoice() {
   //displays the rock, papper and scissor icons for player to choose from
   removeFistImg()
+  heading.style.display = "none";
   iconcontainer.style.display = "flex";
   choice.style.display = "block";
   howto.style.display = "block";  
