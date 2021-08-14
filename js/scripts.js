@@ -151,6 +151,7 @@ function resetGame() {
   playagain.style.display = "none";
   score.style.display="none";
   iconcontainer.style.display = "flex";
+  howto.style.display = "block";
 }
 
 //the following functions determine the message shown depending on a win, loss, or stalemate.
