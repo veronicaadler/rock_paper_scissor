@@ -24,12 +24,21 @@ const rockstalemate = document.getElementById("rockstalemate");
 const paperstalemate = document.getElementById("paperstalemate");
 const scissorstalemate = document.getElementById("scissorstalemate");
 const playagain = document.getElementById("playagain");
+const score = document.querySelector('.scorecontainer');
+const playerscoredisplay = document.getElementById('playerscore');
+const opponentscoredisplay = document.getElementById('opponentscore');
+const howto = document.getElementById('howto');
+const modal = document.getElementById('myModal');
+const modalclose = document.querySelector('.close')
 
 doublefist.addEventListener("mouseover", enableHoverFeature);
 doublefist.addEventListener("mouseout", disableHoverFeature);
 doublefist.addEventListener("click", startGame);
 
 const opponentchoices = ["rock", "paper", "scissor"];
+
+let playerscore = 0;
+let opponentscore = 0;
 let type = "";
 
 function startGame() {
@@ -53,20 +62,34 @@ function playAnimation() {
 
 function playerChoice() {
   //displays the rock, papper and scissor icons for player to choose from
+  removeFistImg()
   iconcontainer.style.display = "flex";
   choice.style.display = "block";
+  howto.style.display = "block";  
+  howto.addEventListener('click', howTo)  
   paper.addEventListener("click", () => Battle("paper"));
   scissor.addEventListener("click", () => Battle("scissor"));
   rock.addEventListener("click", () => Battle("rock"));
 }
 
+function howTo() {
+    modal.style.display="block"; 
+    modalclose.onclick = function() {
+        modal.style.display = "none";
+      }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    } 
+}
+
 function Battle(choice) {
   //logic that determines the winner
   iconcontainer.style.display = "none";
+  howto.style.display = 'none';
   let opponentchooses =
     opponentchoices[Math.floor(Math.random() * opponentchoices.length)];
-  console.log(opponentchooses);
-  removeFistImg();
 
   if (opponentchooses === "rock" && choice === "scissor") {
     playerLoss("scissor");
@@ -113,12 +136,20 @@ function playAgain() {
   //displays the play again button
   playagain.style.display = "block";
   playagain.addEventListener("click", resetGame);
+  displayScore()
+}
+
+function displayScore() {
+    document.querySelector('.scorecontainer').style.display = "flex";
+    playerscoredisplay.innerHTML = playerscore;
+    opponentscoredisplay.innerHTML = opponentscore;  
 }
 
 function resetGame() {
   //resets the game after playAgain button is clicked
   document.getElementById(`${type}`).style.display = "none";
   playagain.style.display = "none";
+  score.style.display="none";
   iconcontainer.style.display = "flex";
 }
 
@@ -134,6 +165,23 @@ function playerLoss(reasonloss) {
   if (reasonloss === "rock") {
     rockloose.style.display = "block";
   }
+  scoreKeeper('loss')
+  
+}
+
+function scoreKeeper(winorlose) {
+    if (winorlose === 'loss') {
+        opponentscore++
+        if (playerscore > 0) {
+            playerscore--
+        }
+    }
+    if (winorlose === 'win') {
+        playerscore++
+        if (opponentscore > 0) {
+            opponentscore--
+        }
+    }
 }
 
 function stalemate(reasonstale) {
@@ -160,6 +208,7 @@ function playerWin(reasonwin) {
   if (reasonwin === "rock") {
     rockwin.style.display = "block";
   }
+  scoreKeeper('win')
 }
 
 function removeFistImg() {

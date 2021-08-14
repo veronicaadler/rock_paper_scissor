@@ -34,17 +34,39 @@
           </div>
         </div>
       </div>
+      <!--How to Play Button-->
+      <button id="howto">How to Play</button>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Rock Paper Scissors is a hand game usually played by two people similar to flipping a coin, drawing straws or throwing dice.
+            Your objective is to defeat your opponent by choosing 1 of 3 hand signals:<br><br>
+            Rock wins against scissors.<br>
+            Scissors win against paper.<br>
+            Paper wins against rock.<br><br>
+          If you and your opponent choose the same signal, the game will result in a tie.</p>
+        </div>
+      
+      </div>
       <!--the various headings that will be displayed depending on the result of the game, hidden by default-->
       <div class="outtros">
-      <h5 id="paperwin">Your Opponent choose rock. Paper covers rock.  You win!</h5>
-      <h5 id="scissorwin">Your Opponent choose paper. Scissors cut paper.  You win!</h5>
-      <h5 id="rockwin">Your Opponent choose scissors. Rock crushes scissors.  You win!</h5>
-      <h5 id="rockloose">Your Opponent choose paper. Paper covers rock.  You lose!</h5>
-      <h5 id="paperloose">Your Opponent choose scissors. Scissors cut paper. You lose!</h5>
-      <h5 id="scissorloose">Your Opponent choose rock. Rock crushes scissors.  You lose!</h5>
-      <h5 id="rockstalemate">Your Opponent choose rock. So did you.  Stalemate.</h5>
-      <h5 id="paperstalemate">Your Opponent choose paper. So did you.  Stalemate.</h5>
-      <h5 id="scissorstalemate">Your Opponent choose scissors. So did you.  Stalemate.</h5>
+      <h5 id="paperwin">Your Opponent chose rock. Paper covers rock.  You win!</h5>
+      <h5 id="scissorwin">Your Opponent chose paper. Scissors cut paper.  You win!</h5>
+      <h5 id="rockwin">Your Opponent chose scissors. Rock crushes scissors.  You win!</h5>
+      <h5 id="rockloose">Your Opponent chose paper. Paper covers rock.  You lose!</h5>
+      <h5 id="paperloose">Your Opponent chose scissors. Scissors cut paper. You lose!</h5>
+      <h5 id="scissorloose">Your Opponent chose rock. Rock crushes scissors.  You lose!</h5>
+      <h5 id="rockstalemate">Your Opponent chose rock. So did you.  Stalemate.</h5>
+      <h5 id="paperstalemate">Your Opponent chose paper. So did you.  Stalemate.</h5>
+      <h5 id="scissorstalemate">Your Opponent chose scissors. So did you.  Stalemate.</h5>
+    </div>
+    <!--Keeps Score-->
+    <div class="scorecontainer">
+      <p class="score">Your Score:<span id="playerscore"></span></p>
+      <p class="score">Opponent's Score:<span id="opponentscore"></span></p>
     </div>
     <!--Play Again Button-->
     <button id="playagain">Play Again</button>
