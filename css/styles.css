@@ -3,6 +3,10 @@ body {
     background-color: black;
 }
 
+#choiceheader {
+  margin-top: -70px;
+}
+
 #doublefist {
     border-radius: 60%;
     margin-top: -20px;
