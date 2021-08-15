@@ -5,7 +5,6 @@ const iconcontainer = document.querySelector(".row");
 const paper = document.getElementById("paper");
 const rock = document.getElementById("rock");
 const scissor = document.getElementById("scissor");
-const introsong = document.getElementById("intro");
 const winsound = document.getElementById("win");
 const losesound = document.getElementById("lose");
 const stalematesound = document.getElementById("stalemate");
@@ -44,7 +43,6 @@ let type = "";
 function startGame() {
   /*intitialized when the user clicks to play.  Removes the event listeners,
 intitalizes the animation and stops the intro music*/
-  introsong.play();
   startbutton.style.display = "none";
   doublefist.classList.remove("hover");
   doublefist.removeEventListener("mouseover", enableHoverFeature);
@@ -54,9 +52,11 @@ intitalizes the animation and stops the intro music*/
 
 function playAnimation() {
   //begins the animation that initializes the game
-  doublefist.classList.add("animated");
-  doublefist.addEventListener("animationend", playerChoice);
+  //doublefist.classList.add("animated");
+  //doublefist.addEventListener("animationend", playerChoice);
   doublefist.removeEventListener("click", startGame);
+  removeFistImg()
+  playerChoice()
 }
 
 function playerChoice() {
